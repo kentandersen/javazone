@@ -1,0 +1,51 @@
+Outline:
+Situasjonsrapport 5 min
+hvorfor feiler JavaScript lenge før andre språk?
+- manglende/missforståtte patterns i JavaScript
+- uerfarne utviklere
+- spagettikode
+- feilslåtte konsepter
+- strukturløs arv
+- utstrakt bruk av mixins
+
+Ønskesituasjon 5 min
+- gjennbrukbar kode
+- delte moduler
+- gode abstrakter
+- versjonering
+
+Separation of concern 5min
+- slutt med monolittisk frontend kode. Splitt flere skjermbilder (use-case) i flere filer
+- del opp skjermbildet i flere moduler (meny, kontoer, applikasjon etc) som har eget release løp.
+- avgrens bruken av rammeverk i for hver modul, ikke alle trenger backbone
+
+Prototype-basert arv 5min
+- abstrakter i JavaScript
+- løsning i forskjellige rammeverk, backbone, angular, react
+- hvordan skrive
+
+Oppdeling av moduler 10min
+- introduser browserify
+- splitte opp frontend i flere filer.
+- introducer begrepe mixins
+- domens mot teknologi, ingen /js og /template mappe
+- import av moduler
+- distribusjon av biblioteker
+
+Skille mellom app kode og lib kode 10min
+- dele bibliotek runtime
+- bruk av externals i browserify
+- versjonering av biblioteker
+- lasting av biblioteker
+- håndtering av browser cache
+
+vår enderlig løsning 5min
+- hvordan sider blir lastet av sider og resurser blir valgt cache-busting
+- cdn server
+- deling av runtime-moduler
+
+hvordan blir dette Klassebasert arv i EcmaScript 6 5min
+- klasser i javascript
+- import av moduler
+- annet snaks i EcmaScript 6
+- introduser babel.js cross-compiler
