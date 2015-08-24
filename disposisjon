@@ -1,0 +1,80 @@
+Javascript er dårlig  5 min
+  Det ble utviklet for å få apen til å danse
+    * klikk på ape, den danser
+  Det har mange feil og uforutsett oppførsel som vi må jobbe oss rundt
+    * typeof {} // "object"
+    * typeof [] // "object"
+    * typeof (new function(){}) // "object"
+  Internet er fullt av dårlige løsninger
+    * memoize funksjon er tregere enn brute force
+
+  JavaScript er for de evneveike som ikke klarer å kode Java™
+  Mitt navn er Kent Andersen, jeg er en JavaScript-utvikler og i dag skal vi snakke om å bygge stor applikasjoner i JavaScript
+
+  Heldigvis har ting forandret seg. Flike folk bygger fine bra i JavaScript.
+    * Goolge docks
+    * Google maps
+    (kanskje finne et eksempel som ikke er google)
+
+  Men de fleste feil og magler er det fortsatt med oss.
+  Språket har ingen struktur eller rettesnor bygget inn.
+  Heldigvis har vi rammeverk for å tette gapet. Derfor finnes det omtrent like mange mv*-rammeverk som det er gram masse på jorden
+    * todoMVC
+    * til referanse er det 56 milliard ipv6 pr gram masse, så vi har litt å gå på(https://pthree.org/2009/03/08/the-sheer-size-of-ipv6/#comment-116385)
+
+  Da er det bare å laste inn ReactJS, skriv en masse kode, vent på at monney starts pouring
+
+
+Applikasjonsstruktur 5min
+  Single pager
+  Multi pager
+  Navigere mellom sider (med cache busting)
+  Bruk url for det den er laget til
+  «Dette er en url»
+  Backend - rest - {ullene frontend hipster greier}
+  «Er det farlig med page refresh»
+
+
+Vurderinger 5min
+  Microservices i frontend
+  Levetid på rammeverk
+  «Rammeverk kommer og går»
+  Migrering / big-bang omskrivning
+  Frontend moduler (menu - content - footer modellen)
+
+
+Ytelse 10min
+  Over folden, critical path
+  Play while downloading - samme som streaming video
+  HTML er bygget på progressig download
+  «Dette er mer en app enn en webside»
+  «Brukere blir lei etter 2 sekunder og mange gir opp etter 6»
+  Lasterekkefølge
+  Blocking av UI-tråden
+  Async flagg for lasting og parsing / kjøring av script
+  «Ingen grunn til å vente på DOMContentLoaded ($(document).ready())»
+  Fjern kode! Unødvendige biblioteker etc
+  preparser
+
+
+
+Verktøy 5min
+  Content delivery network
+  Browserify -  externals
+  Caching av script mellom sider, cache busing
+  Versjonering
+
+
+Kodehåndtverk 10min
+  Widgets
+  Moduler
+  Abstrakter
+  Arv - object composition (mixins)
+  Routing (internt i SPA)
+  Løst koblet frontend
+  One way dataflow
+  Orchestrator pattern
+  Filstruktur (moduler)
+
+
+Konkluksjon 5min
