@@ -11,44 +11,96 @@ Javascript er dårlig  5 min
   JavaScript er for de evneveike som ikke klarer å kode Java™
   Mitt navn er Kent Andersen, jeg er en JavaScript-utvikler og i dag skal vi snakke om å bygge stor applikasjoner i JavaScript
 
-  Heldigvis har ting forandret seg. Flike folk bygger fine bra i JavaScript.
+  Heldigvis har ting forandret seg. Flike folk bygger bra i JavaScript.
     * Goolge docks
     * Google maps
     (kanskje finne et eksempel som ikke er google)
 
   Men de fleste feil og magler er det fortsatt med oss.
   Språket har ingen struktur eller rettesnor bygget inn.
-  Heldigvis har vi rammeverk for å tette gapet. Derfor finnes det omtrent like mange mv*-rammeverk som det er gram masse på jorden
+  Heldigvis har vi rammeverk for å tette gapet. Derfor finnes det like mange mvc-rammeverk som det er gram masse på jorden
     * todoMVC
     * til referanse er det 56 milliard ipv6 pr gram masse, så vi har litt å gå på(https://pthree.org/2009/03/08/the-sheer-size-of-ipv6/#comment-116385)
 
-  Da er det bare å laste inn ReactJS, skriv en masse kode, vent på at monney starts pouring
+  Da er det bare å laste inn ReactJS, skriv en masse kode, vent på at money starts pouring
 
 
 Applikasjonsstruktur 5min
-  Single pager
-  Multi pager
-  Navigere mellom sider (med cache busting)
-  Bruk url for det den er laget til
-  «Dette er en url»
-  Backend - rest - {ullene frontend hipster greier}
-  «Er det farlig med page refresh»
+  Alle som har startet et prosjekt, uahengig av språk, med kun tanken om at «hvis jeg følger best practice, så vil alle problemer løses». Har tidlig oppdaget at det er ting du trenger å gjøre, som rammeverket-utviklerene ikke har tenkt på
+
+  Derfor skal vi se hvordan bygge applikasjoner, og hvordan håndtere at de vokser.
+
+  Hvis vi ser tilbake 2000 år. Let Me Be Your Father X-mas med Boyzvoice toppet vglista. Og bekk.no så slik ut (TODO: finn et bilde fra 2000)
+
+  Nettet var statiske greier. Last side, trykk en link, last en ny side. Server hadde full konroll, og veldig skjedde på fremsiden.
+
+  Så spoler vi frem til 2010, året jeg var ferdig på skolen. Vi begynnt leke med det vi i dag kaller Single page applications.
+  Trender er alltid interssant; Når vi begynner å bli lei bikker det alltid over på andre siden.
+    * 70 talls slengbukse - 80 talls tightfit
+    * 90 talls bootcut - 2000 talls tightfit
+
+  Det samme finner vi i software. Vi gikk fra å levere all markup fra server, til å bygge all markup i JavaScript.
+  En stund var det veldig kult, helt til vi begynte å se på lastetider. Hvor lang tid bruker vi på å få innhold opp på skjermen. Du må laste ned all CSS, all JS, parse, kjøre også rendre.
+
+  I tillegg brakk vi det som grunnleggende på  webben, å kunne linke mellom sider. Nå har store webrammeverk gjort en ganske god jobb med å brekke lenking allerede.
+    * «Dette er en url»
+    * app state
+    * post back
+    * hidden fields
+
+  Det single page application virkelig banet veien for var skille mellom backend og fronend.
+    * Enderlig var frontend frisluppet fra postback og appstate rammeverk
+    * Java-utviklere kunne se Backend - rest - {tullete frontend hipster greier}
+    * JavaScriptutviklere kunne se {tullete backend hipster greier} - rest - fronend
+    * Disse to områdene kan utvikle seg uavhengig
 
 
 Vurderinger 5min
-  Microservices i frontend
-  Levetid på rammeverk
-  «Rammeverk kommer og går»
-  Migrering / big-bang omskrivning
-  Frontend moduler (menu - content - footer modellen)
+  Uavhengig er et stikkord. Hvis vi skal utvikle frontend i vår applikasjon i den rettningen _vi_ vil; er det viktig fjerne avhengigheter til større webrammeverk. Jeg er også av den oppfattningen at CMS integrasjon somregel gjør mer skade enn nytte mtp skape spennende tjenester på nettet. Men dette er tema for en helt egen talk.
+
+  Ved å isoloere frontend fra backend kan vi ta avgjørelser på bakgrunn av hva som er best for frontend.
+  Jøran Lillesand og Stian Mathiassen holdt et ginstrende foredrag tidligere om «Micro Services i Posten». Hvis dere ikke så det, så anbefaler jeg dere å se det når videoene blir tilgjengelige.
+  Ved å behandle frontend som en microservice oppnår vi isolasjon, som burde være fornuftig mtp på at de har helt forskjellige endringstakt og krav til test.
+
+  Nå som vi har skillt oss fra backend er allt bare fryd og gammen. Vi kan gjøre hva vi vil
+  Det er litt som å flytte hjemmefra, du kan spise posesuppe og være oppe hele natta, men det ikke en tilværelse du kan være i særlig lenge. Selv med helt frie tøyler, trenger vi struktur (kanskje mer enn før)
+
+  Det er her det fleste av oss tyr til rammeverk. Det er helt greit og i mange tilfeller et riktig valg. Det er ikke noe poeng å finne opp hjulet på nytt, og du vil uansett ende opp med et rammeverk, om du laster ned noe ferdig eller koder det selv.
+
+  Rammeverk kommer å går.
+  stjel litt herfra: http://blog.bitovi.com/longevity-or-lack-thereof-in-javascript-frameworks/
+
+  Det er helt urealistisk å tro at valg vi tar i dag vil være like riktige om 2-5år. Derfor mener jeg det er viktigere å rigge infrastrukturen slik at vi _kan_ den dagen det er nødvendig.
+
+  Hvis vi igjen ser på arkitekturdiagrammet, backend penkt brukket opp i små biter, mens frontend er en diger klump på tvers av hele tjenesteomrdet. Den minner litt om en gammel kjenning
+    * Weblogic portal
+    * bilde av monulitt
+
+  Alle som har jobbet med en moulittisk arkitektur vet hvor vanskelig det er å migrere. Jo mer knyttet du er til et rammeverk jo mer tid vil det ta å skrive seg vekk.
+  Derfor foreslår jeg å brekke frontend også opp i mindre biter og lage flere single page applikasjoner
+    * Ikke så små at vi ender opp med arktekturen
+    * store nok at det gir verdi
+
+  Når du navigerer fra et tjenesteområde til et annet vil vi laste siden på nytt, (akkurat som i 99).
+  «Er det farlig med page refresh». Ser vi på applikasjonene som vi bruker hver dag, har flere av de sidelast mellom for hvert navigasjonssteg
+    * github
+    * ...
+
+  Ved å segmentere hver frontend applikasjon kan en bruke en helt annen teknologi enn de andre. Skulle det vise seg at en teknologi var bedre enn den andre så er det mulig å migrere app for app, ikke en masse risiko - big bang release.
+
+  Vi tok det også enda et steg lenger. Hvilke cross cutting elementer har vi, som skal være identisk på alle sider. Meny fotter kontooversikt og trakk de inn i appen som dependecies.
+  Det er vesentlig å merke seg at vi trakk elementene inn i applikasjonen, ikke applikasjonen inn i et rammeverk. Det er en enkel grunn til det.
+    * Hver applikasjon skal kunne kjøres isolert
+    * Ikke noe av noen avhengigheter til felle rammeverk på tvers runtime (uten versjonering)
+    * En endring i X skal ikke ødelegge for Y
 
 
 Ytelse 10min
   Over folden, critical path
   Play while downloading - samme som streaming video
   HTML er bygget på progressig download
-  «Dette er mer en app enn en webside»
-  «Brukere blir lei etter 2 sekunder og mange gir opp etter 6»
+  «Dette er mer en app enn en webside, så mine brukere kan vente de ekstra 20 sekundene det tar å laste», «Brukere blir lei etter 2 sekunder og mange gir opp etter 6»
+
   Lasterekkefølge
   Blocking av UI-tråden
   Async flagg for lasting og parsing / kjøring av script
