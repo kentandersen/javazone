@@ -96,28 +96,86 @@ Vurderinger 5min
 
 
 Ytelse 10min
-  Over folden, critical path
-  Play while downloading - samme som streaming video
-  HTML er bygget på progressig download
-  «Dette er mer en app enn en webside, så mine brukere kan vente de ekstra 20 sekundene det tar å laste», «Brukere blir lei etter 2 sekunder og mange gir opp etter 6»
+  Play while downloading
+  http://www.pocket-lint.com/news/122405-xbox-one-will-let-users-play-games-while-downloading-like-the-ps4
+  Det er jo hærlig! Web har hatt denne funksjonen siden begynnelsen
+    * laste video
+    * laste stort dokument
 
-  Lasterekkefølge
-  Blocking av UI-tråden
-  Async flagg for lasting og parsing / kjøring av script
-  «Ingen grunn til å vente på DOMContentLoaded ($(document).ready())»
-  Fjern kode! Unødvendige biblioteker etc
+  Browsere parser alt innhold sekvensielt og vil starte å rendre så fort data har begynt å komme.
+  [Det er derfor vi anfalte å sette høyde og bredde på bilder for å unngå reflow av siden.]
+    * dns lookup
+      * It’s important to understand that this is on a per server basis. Using multiple domain names, such as 1.mydomain.com, 2.mydomain.com, 3.mydomain.com, etc., allows a web developer to achieve a multiple of the per server connection limit. This works even if all the domain names are CNAMEs to the same IP address.
+    * parse css
+    * laste javascript
+    * kjøre javascript
+
+  Jeg har hørt dette argumentet i når vi snakker om lastetid.
+  «Dette er mer en app enn en webside, så mine brukere kan vente de ekstra 20 sekundene det tar å laste»,
+  All forskning tilsier at du ikke har 20 sekunder. Du har kanskje ikke 2 en gang. Tabell om brukeropplevse i forhold til venting.  «Brukere blir lei etter 2 sekunder og mange gir opp etter 6»
+
+  Det beste måten å forbedre lastetiden er Fjern kode!
+  Ofte når man skal lage en webapp, så trekker man inn toolkiten man er vant med. jQuery, underscore, backbone, angualr react. Som klokker inn på 200kb. Og alt du trenger dem til er å laste en resurs når noen klikker på en knapp.
+    * http://youmightnotneedjquery.com/
+    * https://www.reindex.io/blog/you-might-not-need-underscore/
+    * ES6 classes
+  Disse resursene beviser egentlig bare at nettleserene har så mye varktøy innbygget at du trenger ikke laste utilities lenger. Missforstå meg ikke; i mange tilfeller gir 200kb masse verdi videre i applikasjonen. Men min erfaring er at mange prematurt trekker inn biblioteker.
+
+  Det er derfor gi deg selv et lastetids budsjett definere hva som er en ferdig lastet side.
+    * Over folden
+    * first interaction
+    * stjel litt herfra: https://speakerdeck.com/patrickhamann/css-and-the-critical-path
+
+  Hvilken rekkefølge vi laster er også viktig
+    * Parseren treffer en css link, vil parsing av dokumentet stoppe til css-en er ferdig lastet. Hvis cssen er tung, så vil hele siden din fryse til den er ferdig
+    * javascript oppfører seg også likt. Men i tillegg vil den kjøre scriptet
+      * script som blocker vil låse siden.
+      * async flagg vil forhindre låsing og laste / kjøre javascript når den har tid. Kjempefint, non-blocking! Ikke helt. Hvis du har avhengigheter, feks jquyer, som tar lenger tind å laste enn ditt script, så vil scriptet ditt kjøre før jquyer er ferdig lastet.
+      Resultatet er masse referance errors.
+      Du kan skrive kode som passer på at biblioteket er lastet, og hvis det ikke er lastet, legger på en onload event, slik at det blir kjørt når det er ferdig lastet.
+    *brekke opp i flere script
+
+  Som et siste prikk over i-en, trenger vi ikke å vente unødvendig. Så lenge vi ikke har avhengigheter til deler av siden som ikke er lastet, er det ingen grunn til å vente på DOMContentLoaded ($(document).ready()) eventen.
+
+
   preparser
-
+  Blocking av UI-tråden
 
 
 Verktøy 5min
-  Content delivery network
-  Browserify -  externals
-  Caching av script mellom sider, cache busing
-  Versjonering
+  «the fastes request is the one you don't have to make»
+
+  Derfor har vi en gammel venn, browser cache
+  Han er skikkelig arbeidsvillig, men ikke spessielt smart.
+  Hvis du gir han en oppgave, spørr han hvordan det skal gjøres. Gir du han en lik oppgave, så spørr han han en gang til.
+  Og det er greit, for hvis han skulle gjøre det på egen hånd blir det alltid kaos.
+
+  For å herske over browser cachen har vi to verktøy. header og addresse. Du kan sette Cache-Control: max-age=231321423 (i sekunder). Men det vil si at brukere som laster siden et sekund før du oppdaterer vil måtte vente hele max-age tiden har løpt ut.
+
+  Derfor har vi egentlig bare addresse å jobbe med. Endrer du en en bokstav i urlen, inkludert query parameter, så invalideres cachen og filen lastes på nytt.
+
+  Går vi tilbake til applikasjonen vår, en app.js og en app.css. Skal vi endre en linje i app.js. må vi endre adressen, invalidere cachen, og hele filen lastes på nytt. Alle 300 kb
+
+  Derfor begynte jeg å se på, hvordan unngå at det som skjelden endrer seg må lastes pga det som ofte endrer seg.
+
+  Ser vi på anatomien til en applikasjon så får vi dette.
+    * 3parts biblioteker og rammeverk; jquery, underscore, backbone etc
+    * meny og andre elementer som er tilgjengelig på alle sider
+    * egenutviklete widgets og delt kode som brukes noen steder
+    * helt unik applikasjonskode
+
+  her har vi flere grupper som nesten aldri endrer seg. Og de står for typisk 80% av størrelsen? Kan vi segmentere applikasjonen slik at denne delen ikke blir invalidert.
+
+  Derfor har vi skilt mellom rammeverk, felleskode, og applikasjonskode. Dermed kan applikasjonskoden endres daglig, uten at hele rammeverket må lastes ned.
+  Når vi skal oppdatere endten applikasjons-koden eller rammeverks-koden endrer vi filnavnet og nettleseren laster ned den nye versjon.
+
+  Blir rammeverkspakkene flyttet til felles ressurs, på tvers av alle applikasjonene, så kan koden hentes fra cache også når brukeren navigerer mellom forskjellige applikasjoner.
+
+  Skulle en applikasjon trenge endringer i rammeverkskoden, lager vi bare en ny versjon og legger den paralellt med den eksisterende og oppdatere den ene. Fordelen er at vi kan ha apper peke på forskjellige versjoner, og på den måten unngå en tvungen oppgradering på tvers. I praksis er det ikke ideelt å ha mange versjoner i spill samtidig. Men å ha fleksibiliten til å oppgradere enkeltapper gjør at vi kan være råere med refaktorering av rammeverkskode.
 
 
 Kodehåndtverk 10min
+  Browserify - externals
   Widgets
   Moduler
   Abstrakter
@@ -130,3 +188,9 @@ Kodehåndtverk 10min
 
 
 Konkluksjon 5min
+  Nå har vi vært gjennom en masse stoff. Alt fra de store linjene, til detaljer omkring implementasjonen.
+  Hvis vi starter med det store får vi mest igjen for investeringen
+  «Det gir mye mer verdi å levere funksjonalitet ofte og uten risiko, enn om vi venter på DOMContentLoaded»
+
+
+
