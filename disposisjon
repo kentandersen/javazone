@@ -11,7 +11,12 @@ Javascript er dårlig  5 min
   JavaScript er for de evneveike som ikke klarer å kode Java™
   Mitt navn er Kent Andersen, jeg er en JavaScript-utvikler og i dag skal vi snakke om å bygge stor applikasjoner i JavaScript
 
-  Heldigvis har ting forandret seg. Flike folk bygger bra i JavaScript.
+  I dette foredraget skal vi se på hvordan bygge infrastruktur som tåler kontinuerlig utvikling
+  hvordan optimalisere for vekst
+  og hvordan implementere for å unngå låsing mellom applikasjoner
+
+
+  Det har heldigvis skjedd en del ting. Flike folk bygger bra i JavaScript.
     * Goolge docks
     * Google maps
     (kanskje finne et eksempel som ikke er google)
@@ -26,27 +31,11 @@ Javascript er dårlig  5 min
 
 
 Applikasjonsstruktur 5min
-  Alle som har startet et prosjekt, uahengig av språk, med kun tanken om at «hvis jeg følger best practice, så vil alle problemer løses». Har tidlig oppdaget at det er ting du trenger å gjøre, som rammeverket-utviklerene ikke har tenkt på
+  Derfor må vi også planelege for gi applikasjoner mulighet å vokse.
 
-  Derfor skal vi se hvordan bygge applikasjoner, og hvordan håndtere at de vokser.
+  Tradisjonelt har nettet vert noen statiske greier. Last side, trykk en link, last en ny side. Server hadde full kontroll og klienten viste bare det den fikk servert.
 
-  Hvis vi ser tilbake 2000 år. Let Me Be Your Father X-mas med Boyzvoice toppet vglista. Og bekk.no så slik ut (TODO: finn et bilde fra 2000)
-
-  Nettet var statiske greier. Last side, trykk en link, last en ny side. Server hadde full konroll, og veldig skjedde på fremsiden.
-
-  Så spoler vi frem til 2010, året jeg var ferdig på skolen. Vi begynnt leke med det vi i dag kaller Single page applications.
-  Trender er alltid interssant; Når vi begynner å bli lei bikker det alltid over på andre siden.
-    * 70 talls slengbukse - 80 talls tightfit
-    * 90 talls bootcut - 2000 talls tightfit
-
-  Det samme finner vi i software. Vi gikk fra å levere all markup fra server, til å bygge all markup i JavaScript.
-  En stund var det veldig kult, helt til vi begynte å se på lastetider. Hvor lang tid bruker vi på å få innhold opp på skjermen. Du må laste ned all CSS, all JS, parse, kjøre også rendre.
-
-  I tillegg brakk vi det som grunnleggende på  webben, å kunne linke mellom sider. Nå har store webrammeverk gjort en ganske god jobb med å brekke lenking allerede.
-    * «Dette er en url»
-    * app state
-    * post back
-    * hidden fields
+  Men noe skjedde omkring 2005-2006. Nå ville vi ikke ha noe med serveren å gjøre. Hele siden skulle settes opp i klienten ingen serverside html i det hele tatt. Vi gikk vekk fra store webrammeverk som JSF og over på tykke klienter.
 
   Det single page application virkelig banet veien for var skille mellom backend og fronend.
     * Enderlig var frontend frisluppet fra postback og appstate rammeverk
@@ -84,7 +73,7 @@ Vurderinger 5min
   Når du navigerer fra et tjenesteområde til et annet vil vi laste siden på nytt, (akkurat som i 99).
   «Er det farlig med page refresh». Ser vi på applikasjonene som vi bruker hver dag, har flere av de sidelast mellom for hvert navigasjonssteg
     * github
-    * ...
+    * alle google apps
 
   Ved å segmentere hver frontend applikasjon kan en bruke en helt annen teknologi enn de andre. Skulle det vise seg at en teknologi var bedre enn den andre så er det mulig å migrere app for app, ikke en masse risiko - big bang release.
 
@@ -175,10 +164,13 @@ Verktøy 5min
 
 
 Kodehåndtverk 10min
-  Browserify - externals
+  Siden javascript ikke har har noe konsept om moduler må vi introdusere et modul-bibliotek. I vår løsning gikk har vi brukt Browserify og er veldig fornøyd med det. Tidligre brukte vi require.js, det fungerte forsåvidt også greit, men require er mer gira mot å laste avhengigheter i klienten, ikke bundle alle i en pakke.
+
+  Browserify har et konsept som heter externals, dvs en bundle kan tilby et utvalg moduler for konsumering eksternt. Dette passer veldig bra med den todelte løsningen vi snakket, deling av rammeverk og applikasjon. Applikasjonen kan konsumere biblioteker som ligger i rammeverks filen, akkurat på samme måte som en intern avhengighet.
+
   Widgets
   Moduler
-  Abstrakter
+  Abstrakter'x
   Arv - object composition (mixins)
   Routing (internt i SPA)
   Løst koblet frontend
@@ -191,6 +183,3 @@ Konkluksjon 5min
   Nå har vi vært gjennom en masse stoff. Alt fra de store linjene, til detaljer omkring implementasjonen.
   Hvis vi starter med det store får vi mest igjen for investeringen
   «Det gir mye mer verdi å levere funksjonalitet ofte og uten risiko, enn om vi venter på DOMContentLoaded»
-
-
-

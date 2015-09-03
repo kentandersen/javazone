@@ -2,32 +2,423 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Service Workers</title>
+    <title>Skaler frontend uten å måtte kaste alt</title>
     <link rel="stylesheet" href="node_modules/remark-bekk/dist/bekk.css">
   </head>
   <body class="bekk-black">
     <textarea id="source">
 
+class: front-page
+  # Skaler frontend uten å måtte kaste alt
+  ## JavaZone 2015
+
+  Kent Andersen<br>
+  <span class="today-date"></span>
+
+---
+
+class: cols two center middle
+
+  .col[
+    ![](images/popup-skisse.png)
+  ]
+
+--
+
+  .col[
+    ![](images/popup.png)
+  ]
+---
+
+class:  center middle
+
+    ![](images/struktur.png)
+
+---
+
+class:  center middle
+
+    ![](images/spagetti-kode.png)
+
+???
+  Syntax highlight sier bra «snakkes, dette får du fikse alene»
+
+---
+
 class: center middle
 
-#Situasjonsrapport 5 min
+  ![](images/couple-fighting-in-kitchen.jpg)
+
+???
+  * Transkrivert et kranglende ekstepar
+  * gjørt random edits til det kompilerte
 
 ---
+
+class: center middle
 # hvorfor feiler JavaScript lenge før andre språk?
-* manglende/missforståtte patterns i JavaScript
-* uerfarne utviklere
-* spagettikode
-* feilslåtte konsepter
-* strukturløs arv
-* utstrakt bruk av mixins
 
 ---
+
+# hvorfor feiler JavaScript lenge før andre språk?
+
+  <br>
+  <img id="danse-ape" src="images/danse-ape.png" style="display:block;margin:0 auto;cursor:pointer">
+
+---
+
+# hvorfor feiler JavaScript lenge før andre språk?
+
+--
+
+```
+  typeof {} // "object"
+```
+
+--
+
+```
+  typeof [] // "object"
+```
+
+--
+
+```
+  typeof (new function(){}) // "object"
+```
+
+--
+
+```
+  typeof null; // "object"
+```
+
+
+
+???
+Det har mange feil og uforutsett oppførsel som vi må jobbe oss rundt
+klassisk for alle u-typede språk
+
+---
+
+# uerfarne utviklere
+
+```
+  var hash = {};
+  var summarize = function(arr) {
+    var key = JSON.stringify(arr);
+    var value = hash[key];
+
+    if(!value) {
+      value = hash[key] = somethingExpensive(arr);
+    }
+
+    return value;
+  }
+```
+
+???
+eneste memoize funksjonen som er tregere enn bruteforce
+
+---
+
+class: middle
+
+
+  <blockquote style="font-size:2.5em">
+    «JavaScript er for evneveike utviklere som ikke klarer å kode Java™»
+  </blockquote>
+
+  <div style="display:block;text-align:right">Ikke Navngitt Java-utvikler</div>
+
+---
+
+class: cols two middle
+
+<div class="col">
+  <img src="images/kent.jpg" style="border-radius:1000px"></div>
+</div>
+
+<div class="col" style="margin-top:11%;font-size:2.5em;">
+  Kent Andersen<br>
+  <small style="font-size:0.7em">Evneveik JavaScript-utvikler</small>
+</div>
+
+
+---
+
+class: cols three middle
+
+.col[
+  ![](images/google-maps.png)
+]
+
+.col[
+  ![](images/apple-pages.png)
+]
+
+.col[
+  ![](images/spotify.png)
+]
+
+---
+???
+Vi trenger bare et javascript rammeverk
+
+--
+
+class: center middle
+
+  ![](images/js-framework1.jpg)
+
+---
+
+class: center middle
+
+  ![](images/js-framework2.png)
+
+---
+
+class: center middle
+
+  ![](images/js-framework3.jpg)
+
+---
+
+# JavaScript-rammeverk hipster-o-meter
+
+--
+
+  ![](images/hipstometer.png)
+
+???
+Alle vet at hipsterfaktor måles i skrivemaskiner og kopper med økologisk kaffe
+
+---
+
+class: center middle
+
+  ![](images/business-guy-money.jpg)
+
+---
+
+class: center middle
+
+# Takk for meg?
+
+--
+
+## ikke helt
+
+---
+
+class: center middle
+
+  ![](images/onejob.jpg)
+
+???
+
+* Alle som har startet i den ene enden helt uten en plan har opplevd dette
+* Kan fungere på små prosjekter, todo-apps
+* Men det er ikke det vi sliter med
+
+---
+
+class: center middle
+
+???
+Bygger du alt rundt et dårlig konspet så blir resultatet skit
+
+--
+
+  ![](images/jarjar.png)
+
+---
+
+class: fullscreen
+
+  <iframe src="http://2002.javazone.no/" />
+
+---
+
+# Tidene forandrer seg
+
+```html
+<html>
+  <head>
+    <title>KentBank 1</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <ul class="meny">
+      <li> Lån </li>
+      <li> Sparing og pensjon </li>
+    </ul>
+    <div class="innhold">
+      Det kan være vanskelig å spare, men å bruke penger går ofte helt av seg selv.
+      Men hva hvis du kunne spart litt hver gang du bruker kortet?
+    </div>
+
+    <div class="bunn">
+      © KentBank 1 | Personvern og sikkerhet | Informasjonskapsler
+    </div>
+  </body>
+</html>
+```
+
+???
+Her var det flotte rammeverk som Beehive, JSF og Struts som bestemmer
+
+---
+
+# Tidene forandrer seg
+
+```html
+<html>
+  <head>
+    <title>KentBank 1</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+
+---
+
+# Tidene forandrer seg
+
+  ![](images/rest-struktur.png)
+
+---
+class: center middle
+
+  ![](images/berlinermuren.jpg)
+
+???
+Opprettet et skille mellom frontend backend
+
+---
+
+class: center middle
+
+  ![](images/17mai.jpg)
+
+???
+* det var kansjke litt dystert
+* frigjort oss fra backend
+* ta valg som kun kommer frontend til gode
+
+---
+class: middle
+
+  <blockquote style="font-size:2em">
+    «With Great Power Comes Great Responsibility»
+  </blockquote>
+
+  <div style="display:block;text-align:right">Uncle Ben</div>
+
+???
+Litt som å flytte hjemmefra
+Husk på hva Uncle Ben har sagt
+
+---
+
+name: framework-history
+class: cols three
+
+# Flyttet hjemmefra
+
+  <div class="col">
+    <h2>2010</h2>
+
+    <img src="images/hotrightnow1.png">
+  </div>
+
+<div class="col">
+    <h2>2011</h2>
+
+    <img src="images/hotrightnow2.png">
+  </div>
+  <div class="col">
+    <h2>2012</h2>
+
+    <img src="images/hotrightnow3.png">
+  </div>
+  <div class="col">
+    <h2>2013</h2>
+
+    <img src="images/hotrightnow4.png">
+  </div>
+  <div class="col">
+    <h2>2014</h2>
+
+    <img src="images/hotrightnow5.png">
+  </div>
+  <div class="col">
+    <h2>2015</h2>
+
+    <img src="images/hotrightnow6.png">
+  </div>
+
+---
+
+  <img src="images/js-framework-forventning.png" style="height:650px">
+
+---
+
+  <img src="images/js-framework-realitet.png" style="height:650px">
+
+---
+
+class: center middle
+
+  ![](images/rest-struktur.png)
+
+???
+  Minner veldig om et kjent arkitekturparadigme
+
+---
+
+class: center middle
+
+  ![](images/monolitten.jpg)
+
+???
+* Det vil si at skal vi bytte rammeverk, er vi nøtt til å skrive alt på nytt
+* Jøran og Stian skal fortelle hvordan de brakk opp posten i flere biter
+* Løser vi dette problemet på infrastruktur-nivå slipper vi å forholde oss til det i hver applikasjon
+
+---
+
+class: center middle
+
+  ![](images/rest-struktur2.png)
+
+
+---
+
+class: center middle bekk-top
+
+# TAKK!
+
+Kent Andersen
+
+---
+---
+---
+
 
 #Ønskesituasjon 5 min
 * gjennbrukbar kode
 * delte moduler
 * gode abstrakter
 * versjonering
+
+---
+
+#Separation of concern 5min
+* plan for obsolation
 
 ---
 
@@ -89,9 +480,27 @@ class: center middle
           scroll: false
         }
       });
+
+      var dateStr = new Date().toLocaleString('nb-NO', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      Array.prototype.slice.call(document.querySelectorAll(".today-date")).forEach(function(el) {
+        el.textContent = dateStr;
+      });
+
+      document.querySelector("#danse-ape").addEventListener("click", function(event) {
+        var src = event.currentTarget.getAttribute("src");
+        src = src.replace(/(gif|png)/, src.includes("png") ? "gif" : "png");
+
+        event.currentTarget.setAttribute("src", src);
+      });
+
     </script>
 
     <style type="text/css">
+      .remark-slide-number {
+        display: none;
+      }
+
       .split {
         padding-right: 50%;
       }
@@ -102,7 +511,17 @@ class: center middle
         height: 100%;
         max-height: none !important;
       }
+
+      #slide-framework-history .col {
+        margin: 0 0 40px 0;
+        width: 33%;
+        text-align: center;
+      }
+
+      #slide-framework-history .col img {
+        height: 180px;
+      }
+
     </style>
   </body>
 </html>
-
