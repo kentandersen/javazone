@@ -9,9 +9,9 @@
   "author": "Kent Andersen <kentareandersen@gmail.com>",
   "license": "",
   "bugs": {
-    "url": "https://github.com/kentandersen/es6-foredrag/issues"
+    "url": "https://github.com/kentandersen/javazone/issues"
   },
-  "homepage": "https://github.com/kentandersen/es6-foredrag",
+  "homepage": "https://github.com/kentandersen/javazone",
   "dependencies": {
     "remark-bekk": "bekk/remark"
   }

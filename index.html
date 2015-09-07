@@ -4,6 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Skaler frontend uten å måtte kaste alt</title>
     <link rel="stylesheet" href="node_modules/remark-bekk/dist/bekk.css">
+    <link rel="stylesheet" href="slides.css">
   </head>
   <body class="bekk-black">
     <textarea id="source">
@@ -100,12 +101,13 @@ Det har mange feil og uforutsett oppførsel som vi må jobbe oss rundt
 klassisk for alle u-typede språk
 
 ---
+exclude:true
 
 # uerfarne utviklere
 
 ```
   var hash = {};
-  var summarize = function(arr) {
+  var memoize = function(arr) {
     var key = JSON.stringify(arr);
     var value = hash[key];
 
@@ -147,52 +149,75 @@ class: cols two middle
 
 ---
 
-class: cols three middle
+class: cols three middle center
 
-.col[
-  ![](images/google-maps.png)
-]
+<div class="col">
+  <img src="images/google-maps.png" style="height: 260px" />
 
-.col[
-  ![](images/apple-pages.png)
-]
+</div>
 
-.col[
-  ![](images/spotify.png)
-]
+<div class="col">
+  <img src="images/apple-pages.png" style="height: 260px" />
+</div>
+
+<div class="col">
+  <img src="images/spotify.png" style="height: 260px" />
+</div>
 
 ---
 ???
-Vi trenger bare et javascript rammeverk
+Da lager vi bare et overbygg på javascript, et slags rammeverk
 
 --
-
-class: center middle
-
-  ![](images/js-framework1.jpg)
-
----
-
-class: center middle
-
-  ![](images/js-framework2.png)
-
----
 
 class: center middle
 
   ![](images/js-framework3.jpg)
 
+
+???
+Det kommer et nytt javascript-rammeverk hvert 20 min
+
 ---
+background-image: url(images/bar.png)
 
 # JavaScript-rammeverk hipster-o-meter
 
 --
 
-  ![](images/hipstometer.png)
+  <img src="images/backbonejs-logo.svg" style="height: 80px;position: absolute;bottom: 3%;left: 10%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 19%;left: 10.5%;">
+
+--
+
+  <img src="images/angularjs-logo.png" style="height: 80px;position: absolute;bottom: 3%;left: 40%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 19%;left: 40.7%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 32%;left: 40.7%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 45%;left: 40.7%;">
+
+--
+
+  <img src="images/react-logo.png" style="height: 80px;position: absolute;bottom: 3%;left: 70%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 19%;left: 71.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 32%;left: 71.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 45%;left: 71.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 58%;left: 71.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 71%;left: 71.3%;">
+
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 19%;left: 77.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 32%;left: 77.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 45%;left: 77.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 58%;left: 77.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 71%;left: 77.3%;">
+
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 19%;left: 83.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 32%;left: 83.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 45%;left: 83.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 58%;left: 83.3%;">
+  <img src="images/kaffekopp.png" style="height: 80px;position: absolute;bottom: 71%;left: 83.3%;">
 
 ???
-Alle vet at hipsterfaktor måles i skrivemaskiner og kopper med økologisk kaffe
+Alle vet at hipsterfaktor måles i kopper med økologisk kaffe
 
 ---
 
@@ -241,6 +266,12 @@ class: fullscreen
 
 ---
 
+class: fullscreen
+
+  <iframe src="http://2015.javazone.no/program.html" />
+
+---
+
 # Tidene forandrer seg
 
 ```html
@@ -285,10 +316,13 @@ Her var det flotte rammeverk som Beehive, JSF og Struts som bestemmer
 ```
 
 ---
+name: rest-arkitektur
 
 # Tidene forandrer seg
 
-  ![](images/rest-struktur.png)
+  <div class="layer backend">Backend</div>
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer frontend">Frontend</div>
 
 ---
 class: center middle
@@ -305,11 +339,21 @@ class: center middle
   ![](images/17mai.jpg)
 
 ???
-* det var kansjke litt dystert
+* det var kanskje litt dystert
 * frigjort oss fra backend
 * ta valg som kun kommer frontend til gode
 
 ---
+background-image: url(images/flyttet-hjemmefra.jpg)
+class: center middle
+
+# Flytte hjemmefra
+
+???
+Litt som å flytte hjemmefra
+
+---
+
 class: middle
 
   <blockquote style="font-size:2em">
@@ -319,15 +363,30 @@ class: middle
   <div style="display:block;text-align:right">Uncle Ben</div>
 
 ???
-Litt som å flytte hjemmefra
 Husk på hva Uncle Ben har sagt
+
+
+---
+background-image: url(images/bar.png)
+
+# Valgt ut i fra hipster-o-meter
+
+  <span style="position:absolute;left:2%;top:45%">
+    Fart
+  </span>
+  <span style="position:absolute;left:10%;bottom:10%">
+    Tid
+  </span>
+  <img src="images/graf.png" style="position:absolute;left:10%;bottom:40%">
+???
+Vi har valgt det rammeverket som har best muligheter
 
 ---
 
 name: framework-history
 class: cols three
 
-# Flyttet hjemmefra
+# Historien gjentar seg
 
   <div class="col">
     <h2>2010</h2>
@@ -361,53 +420,638 @@ class: cols three
     <img src="images/hotrightnow6.png">
   </div>
 
----
-
-  <img src="images/js-framework-forventning.png" style="height:650px">
-
----
-
-  <img src="images/js-framework-realitet.png" style="height:650px">
+???
+Jeg blir ikke overrasket om det kommer et nytt rammeverk i 2016 som alle er så interissert i
 
 ---
+background-image: url(images/bar.png)
 
-class: center middle
+#bombs og fizzlers
 
-  ![](images/rest-struktur.png)
+.source[http://blog.bitovi.com/longevity-or-lack-thereof-in-javascript-frameworks/]
+
+--
+
+  <span style="position:absolute;left:1%;top:45%">
+    Hype
+  </span>
+  <span style="position:absolute;left:10%;bottom:10%">
+    Tid
+  </span>
+  <img src="images/js-framework-sammenligning-graf.png" style="position:absolute;left:10%;bottom:17%">
+
+--
+
+<div style="position: absolute;right: 10%;bottom: 6%">
+  <span style="display: inline-block; height: 15px; width: 20px; background-color: #FD5158"></span>
+  Backbone
+
+  <span style="margin-left: 30px; display: inline-block; height: 15px; width: 20px; background-color: #36BDB2"></span>
+  Angular
+</div>
+---
+
+background-image: url(images/bar.png)
+
+# Valgt ut i fra hipster-o-meter
+
+  <span style="position:absolute;left:2%;top:45%">
+    Fart
+  </span>
+  <span style="position:absolute;left:10%;bottom:10%">
+    Tid
+  </span>
+  <img src="images/js-framework-realitet-graf.png" style="position:absolute;left:10%;bottom:27%">
+
+--
+  <span style="position:absolute;left:37%;top: 35%;">
+    Ny versjon
+  </span>
+
+  <span style="position:absolute;left:42%;top: 66%;">
+    Skrive om
+  </span>
 
 ???
-  Minner veldig om et kjent arkitekturparadigme
+* ikke argument mot å bruke et rammeverk
+* Et rammeverk får du uansett om du skriver det selv eller ikke
 
 ---
 
-class: center middle
+name: rest-arkitektur
 
-  ![](images/monolitten.jpg)
+#Arkitektur
+
+  <div class="layer backend">Backend</div>
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer frontend">Frontend</div>
+
+---
+name: rest-arkitektur
+
+#Arkitektur
+
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+
+
+  </div>
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer frontend">Frontend</div>
+
+
+???
+* Jøran og Stian skal fortelle hvordan de brakk opp posten i flere biter
+* Minner veldig om et kjent arkitekturparadigme
+
+---
+
+name: rest-arkitektur
+
+#Arkitektur
+
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+  </div>
+
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer">
+    <span class="microservice frontend">Transaksjoner</span>
+    <span class="microservice frontend">Konto</span>
+    <span class="microservice frontend">Kort</span>
+    <span class="microservice frontend">Kreditt</span>
+    <span class="microservice frontend">Admin</span>
+  </div>
+
 
 ???
 * Det vil si at skal vi bytte rammeverk, er vi nøtt til å skrive alt på nytt
-* Jøran og Stian skal fortelle hvordan de brakk opp posten i flere biter
 * Løser vi dette problemet på infrastruktur-nivå slipper vi å forholde oss til det i hver applikasjon
 
 ---
 
+name: rest-arkitektur
+
+#Arkitektur
+
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+  </div>
+
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer">
+    <span class="microservice frontend" style="width:390px">Min oversikt</span>
+    <span class="microservice frontend" style="width:254px">Kortoversikt</span>
+    <span class="microservice frontend" style="width:94px">Profil</span>
+  </div>
+
+---
+
+name: rest-arkitektur
+
+#Arkitektur
+
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+  </div>
+
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer">
+    <span class="microservice frontend" style="width:390px">
+      <img src="images/backbonejs-logo.svg" /> Backbone
+    </span>
+    <span class="microservice frontend" style="width:254px">
+      <img src="images/backbonejs-logo.svg" /> Backbone
+    </span>
+    <span class="microservice frontend" style="width:94px">
+      <img src="images/backbonejs-logo.svg" />
+    </span>
+  </div>
+
+---
+name: rest-arkitektur
+
+#Arkitektur
+
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+  </div>
+
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer">
+    <span class="microservice frontend" style="width:390px">
+      <img src="images/react-logo.png" /> React
+    </span>
+    <span class="microservice frontend" style="width:254px">
+      <img src="images/backbonejs-logo.svg" /> Backbone
+    </span>
+    <span class="microservice frontend" style="width:94px">
+      <img src="images/backbonejs-logo.svg" />
+    </span>
+  </div>
+
+---
+
+name: rest-arkitektur
+
+#Arkitektur
+
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+  </div>
+
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer">
+    <span class="microservice frontend" style="width:390px">
+      <img src="images/react-logo.png" /> React
+    </span>
+    <span class="microservice frontend" style="width:254px">
+      <img src="images/react-logo.png" /> React
+    </span>
+    <span class="microservice frontend" style="width:94px">
+      <img src="images/backbonejs-logo.svg" />
+    </span>
+  </div>
+
+---
+
+name: rest-arkitektur
+
+#Arkitektur
+
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+  </div>
+
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer">
+    <span class="microservice frontend" style="width:390px">
+      <img src="images/react-logo.png" /> React
+    </span>
+    <span class="microservice frontend" style="width:254px">
+      <img src="images/react-logo.png" /> React
+    </span>
+    <span class="microservice frontend" style="width:94px">
+      <img src="images/react-logo.png" />
+    </span>
+  </div>
+
+---
 class: center middle
 
-  ![](images/rest-struktur2.png)
+name:url-struktur
+
+<img src="images/kentbank.png" style="width: 400px">
+<span>.no</span>
+--
+name:url-struktur
+<span>/min-oversikt</span>
+
+---
+
+name: navgiasjon
+#Navigasjon
+
+<div class="layer">
+  <span class="microservice frontend">
+    /min-oversikt
+    <ul>
+      <li>app.js</li>
+      <li>style.css</li>
+    </ul>
+  </span>
+  <span class="microservice frontend">
+    /kortoversikt
+    <ul>
+      <li>app.js</li>
+      <li>style.css</li>
+    </ul>
+  </span>
+  <span class="microservice frontend">
+    /admin
+    <ul>
+      <li>app.js</li>
+      <li>style.css</li>
+    </ul>
+  </span>
+</div>
+
+<hr>
+
+<div class="url">
+<img src="images/kentbank.png" style="width: 300px">
+<span style="">.no</span>
+</div>
+
+---
+
+name: navgiasjon
+class: cols two
+#Navigasjon
+
+<div class="col">
+   <span class="microservice frontend">
+    /min-oversikt
+    <ul>
+      <li>app.js</li>
+      <li>style.css</li>
+    </ul>
+  </span>
+</div>
+
+<div class="col">
+  <h2>Ruter</h2>
+  <ul>
+    <li>/forbruk</li>
+    <li>/transaksjoner</li>
+  </ul>
+
+  <h2>Resurser</h2>
+  <ul>
+    <li>/rest/transaksjoner</li>
+    <li>/rest/konto</li>
+  </ul>
+</div>
+
+---
+name: app-storrelse
+class: cols two
+
+#minoversikt/app.js
+
+<div class="col">
+  <div class="app">
+    <div class="label">Applikasjon</div>
+  </div>
+</div>
+<div class="col" style="margin-top: 200px;font-size: 2em">
+  300kb
+</div>
+
+---
+
+name: app-storrelse
+class: cols two
+
+#minoversikt/app.js
+
+<div class="col">
+
+  <div class="lib">
+    <div class="label">Biblioteker</div>
+  </div>
+  <div class="app">
+    <div class="label">Applikasjon</div>
+  </div>
+</div>
+<div class="col" style="font-size: 2em">
+  <div style="margin-top: 120px;">
+    200kb
+  </div>
+
+  <div style="margin-top: 200px">
+    100kb
+  </div>
+
+</div>
+
+???
+Hver applikasjon har en 200kb penalty
+
+---
+# Del opp applikasjonen
+
+```html
+<html>
+  <head>
+    <title>KentBank 1</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+
+---
+# Del opp applikasjonen
+
+```html
+<html>
+  <head>
+    <title>KentBank 1</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="lib.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+
+---
+# Del opp applikasjonen
+
+```html
+<html>
+  <head>
+    <title>KentBank 1</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="/cdn/lib.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+---
+name: lasting-cdn
+class: cols two
+
+#Lasting av biblioteker fra cdn
+
+
+<div class="col">
+
+  <div class="microservice frontend">
+      Min oversikt
+  </div>
+
+  <div class="microservice frontend">
+      Kortoversikt
+  </div>
+
+</div>
+
+<div class="col">
+  <div class="shared">
+    /cdn/lib.js
+  </div>
+
+  <div class="shared">
+    /cdn/lib.js
+  </div>
+</div>
+
+---
+
+name: lasting-cdn
+class: cols two
+
+#Lasting av biblioteker fra cdn
+
+
+<div class="col">
+
+  <div class="microservice frontend">
+      Min oversikt
+  </div>
+
+  <div class="microservice frontend">
+      Kortoversikt
+  </div>
+
+</div>
+
+<div class="col">
+  <div class="shared">
+    /cdn/lib-1.0.0.js
+  </div>
+
+  <div class="shared">
+    /cdn/lib-1.1.0.js
+  </div>
+</div>
+
+---
+
+name: lasting-cdn
+class: cols two
+
+#Lasting av biblioteker fra cdn
+
+
+<div class="col">
+
+  <div class="microservice frontend">
+      Min oversikt
+  </div>
+
+  <div class="microservice frontend">
+      Kortoversikt
+  </div>
+
+</div>
+
+<div class="col">
+  <div class="shared">
+    /cdn/lib-1.1.0.js
+  </div>
+
+  <div class="shared">
+    /cdn/lib-1.1.0.js
+  </div>
+</div>
+
+---
+background-image: url(images/cross-cutting.jpg)
+class: center middle
+
+# Cross cutting
+
+---
+class: cols two
+# Cross cutting
+
+.col[
+  <img src="images/sb1-minoversikt.png" style="width: 100%"/>
+]
+.col[
+  <img src="images/sb1-betaling.png" style="width: 100%"/>
+]
+
+---
+class: cols two
+
+# Cross cutting
+
+<div class="col">
+  <img src="images/sb1-meny.png" style="width: 90%" />
+  <img src="images/kb1-meny2.png" style="width: 50%" />
+</div>
+<div class="col">
+  <h2>Krav til funksjonalitet</h2>
+  <ul>
+    <li>Laste struktur fra rest-resurs</li>
+    <li>Rendre struktur</li>
+    <li>Vis / skjul på hover</li>
+  </ul>
+</div>
+---
+
+# Cross cutting
+
+```html
+  <html>
+    <head>
+      <title>KentBank 1</title>
+      <link type="text/css" rel="stylesheet" href="style.css" />
+      <script type="text/javascript" src="/cdn/lib.js"></script>
+      <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+      <link type="text/css" rel="stylesheet" href="/cdn/topnavigation.css" />
+      <nav id="top-navigation"></nav>
+      <script type="text/javascript" src="/cdn/topnavigation.js"></script>
+    </body>
+  </html>
+```
+
+---
+class: middle center
+
+![](images/browserify.png)
+
+---
+
+#Browserify
+
+```json
+  {
+    "name": "min-oversikt",
+    "version": "1.0.0",
+    "dependencies": {
+      "lib": "1.1.0",
+      "top-navigation": "1.1.0"
+    }
+  }
+```
+
+---
+
+#Browserify
+
+```
+  browserify("main.js").require([
+    "./vendor/react/react.js", {expose: "react"}
+  ]);
+```
+--
+
+```
+  var React = require("react");
+```
 
 
 ---
 
+#Browserify
+
+```
+  var Dropdown = require("common/dropdown");
+```
+
+--
+
+```
+
+  class MyCustomDropdown extends Dropdown {
+
+    render() {
+      // do something else
+    }
+
+  }
+
+  exports = MyCustomDropdown;
+```
+
+
+---
+# Oppsummering
+
+???
+* Vi har vært gjennom mye
+* Hvordan dele opp frontend for best å kunne itterer videre
+* Splittet applikasjonene våre for best mulig lasting
+*
+
+---
+
+
+---
 class: center middle bekk-top
 
 # TAKK!
 
-Kent Andersen
+@kentandersen
 
 ---
----
----
-
 
 #Ønskesituasjon 5 min
 * gjennbrukbar kode

@@ -1,0 +1,129 @@
+#slide-rest-arkitektur .layer {
+  text-align:   center;
+  font-family:  Conduit;
+  font-size:    40px;
+  width:        100%;
+  padding:      1.2em 0;
+}
+
+#slide-rest-arkitektur .backend {
+  background-color:#36BDB2;
+  color: black;
+}
+
+#slide-rest-arkitektur .frontend {
+  background-color:#FFF9AE;
+  color: black;
+}
+
+#slide-rest-arkitektur .layer .microservice {
+  margin:       -1.2em 0;
+  padding:      1.2em 1em;
+  display:      inline-block;
+}
+
+#slide-rest-arkitektur .microservice img {
+  height: 40px;
+  vertical-align: text-top;
+}
+
+#slide-url-struktur img,
+#slide-url-struktur span {
+  vertical-align:middle;
+  font-size: 2.5em;
+}
+
+#slide-navgiasjon .layer {
+  text-align: center;
+}
+
+#slide-navgiasjon .microservice {
+  display:      inline-block;
+  font-family:  Conduit;
+  font-size:    40px;
+  padding:      1.2em 1em;
+
+  background-color:#FFF9AE;
+  color: black;
+  text-align: left;
+}
+
+#slide-navgiasjon .microservice ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+#slide-navgiasjon .microservice li {
+  margin: 0 12px;
+  line-height: 1em;
+}
+
+#slide-navgiasjon hr {
+  margin: 4em 0;
+}
+#slide-navgiasjon .url {
+  font-size: 2em;
+  text-align: center;
+}
+
+#slide-navgiasjon .url img,
+#slide-navgiasjon .url span {
+  vertical-align: middle
+}
+
+#slide-navgiasjon .col:first-of-type {
+  width: 30%;
+}
+
+#slide-app-storrelse .app,
+#slide-app-storrelse .lib {
+  width: 70%;
+  position: relative;
+}
+
+#slide-app-storrelse .app {
+  background-color: #FFF9AE;
+  height: 500px;
+}
+#slide-app-storrelse .lib {
+  background-color: #36BDB2;
+  height: 300px
+}
+
+#slide-app-storrelse .lib + .app {
+  height: 200px
+}
+
+#slide-app-storrelse .label {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align:center;
+  font-family:  Conduit;
+  font-size:    40px;
+  color: black;
+}
+
+#slide-lasting-cdn .col:first-of-type{
+  width: 30%;
+  padding-right: 10%;
+}
+
+#slide-lasting-cdn .microservice {
+  font-family:  Conduit;
+  font-size:    40px;
+  padding:      1.2em 1em;
+
+  background-color:#FFF9AE;
+  color: black;
+  text-align: center;
+
+  margin-bottom: 20px
+}
+
+#slide-lasting-cdn .shared {
+  font-size:      1.5em;
+  padding:        1.8em 1em;
+  margin-bottom:  20px;
+}
