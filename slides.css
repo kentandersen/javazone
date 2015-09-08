@@ -2,6 +2,14 @@
   display: none;
 }
 
+.remark-notes {
+  font-size: 1.5em;
+}
+
+.remark-notes-preview {
+  font-size: 1.3em;
+}
+
 .split {
   padding-right: 50%;
 }
