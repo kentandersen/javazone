@@ -1,3 +1,28 @@
+.remark-slide-number {
+  display: none;
+}
+
+.split {
+  padding-right: 50%;
+}
+.split img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-height: none !important;
+}
+
+#slide-framework-history .col {
+  margin: 0 0 35px 0;
+  width: 33%;
+  text-align: center;
+}
+
+#slide-framework-history .col img {
+  height: 180px;
+}
+
 #slide-rest-arkitektur .layer {
   text-align:   center;
   font-family:  Conduit;

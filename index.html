@@ -31,30 +31,72 @@ class: cols two center middle
   ]
 ---
 
-class:  center middle
-
-    ![](images/struktur.png)
-
----
-
-class:  center middle
-
-    ![](images/spagetti-kode.png)
-
-???
-  Syntax highlight sier bra «snakkes, dette får du fikse alene»
-
----
 
 class: center middle
+<div style="font-size:2em">
+--
+public
+--
+ / src
+--
+ / js
+--
+ / widgets
+--
+ / selector
+--
+ / single
+--
+ / accountSelectorView
+--
+ / withNiceCheckbox
+--
+ / 🇯🇵🇯🇵
+--
+ /💩.js
 
-  ![](images/couple-fighting-in-kitchen.jpg)
+</div>
+
+
+---
+
+class:  middle
+
+```
+  (function(p, a, c, k, e, d) {
+    e = function(c) {
+        return (c < a ? '' : e(parseInt(c / a))) +
+        ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+    };
+    if (!''.replace(/^/, String)) {
+        while (c--) {
+            d[e(c)] = k[c] || e(c)
+        }
+        k = [function(e) {
+            return d[e]
+        }];
+        c = 1
+    };
+    return p
+  }('3 o=n.m({l:\'p:9\',q:\'t\',k:\'r\',u:{d:c}});3 8=e j().i(\'h-g\',{f:\'b\',s:\',O:\'b\'});
+  .J(".N-M")).L(4(7){7.F=8});6.E("#y-x").w("z",4(2){3 0=2.5.A("0");0=0.D(/(a|1)/,0.C("1")?"a":"1")
+  false|scroll|new|year|NO|nb|toLocaleString|Date|highlightStyle|ratio|create|remark|
+  slideshow|16|highlightLanguage|monokai|month|javascript|navigation|slice|addEventListener
+  |ape|danse|click|getAttribute|setAttribute|includes|replace
+  |querySelector|textContent|call|prototype|Array|querySelectorAll|long|forEach|date|today
+  |day'.split('|'), 0, {}))
+  ```
 
 ???
+  * Syntax highlight sier bra «snakkes, dette får du fikse alene»
   * Transkrivert et kranglende ekstepar
   * gjørt random edits til det kompilerte
 
 ---
+class: center middle
+
+<img src="images/destroy-everything.gif" style="width: 800px" />
+---
 
 class: center middle
 # hvorfor feiler JavaScript lenge før andre språk?
@@ -63,8 +105,10 @@ class: center middle
 
 # hvorfor feiler JavaScript lenge før andre språk?
 
-  <br>
-  <img id="danse-ape" src="images/danse-ape.png" style="display:block;margin:0 auto;cursor:pointer">
+  <img id="danse-ape" src="images/danse-ape.png" style="display:block;margin:50px auto;cursor:pointer">
+
+???
+  10 dager en stormfull Mai 1995
 
 ---
 
@@ -85,7 +129,7 @@ class: center middle
 --
 
 ```
-  typeof (new function(){}) // "object"
+  typeof new function(){} // "object"
 ```
 
 --
@@ -347,10 +391,24 @@ class: center middle
 background-image: url(images/flyttet-hjemmefra.jpg)
 class: center middle
 
-# Flytte hjemmefra
+<h1 id="flytte-hjemmefra" style="
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+">Flytte hjemmefra</h1>
 
 ???
 Litt som å flytte hjemmefra
+
+---
+class: center middle
+
+???
+Kunde-case jeg av konkurrangsehensyn har valgt å annonmisere
+
+--
+![](images/kentbank.png)
+
+???
+For enkelhetsskyld har jeg kalt den kentbank1
 
 ---
 
@@ -380,6 +438,33 @@ background-image: url(images/bar.png)
   <img src="images/graf.png" style="position:absolute;left:10%;bottom:40%">
 ???
 Vi har valgt det rammeverket som har best muligheter
+
+---
+background-image: url(images/bar.png)
+
+#bombs og fizzlers
+
+.source[http://blog.bitovi.com/longevity-or-lack-thereof-in-javascript-frameworks/]
+
+--
+
+  <span style="position:absolute;left:1%;top:45%">
+    Hype
+  </span>
+  <span style="position:absolute;left:10%;bottom:10%">
+    Tid
+  </span>
+  <img src="images/js-framework-sammenligning-graf.png" style="position:absolute;left:10%;bottom:17%">
+
+--
+
+<div style="position: absolute;right: 10%;bottom: 6%">
+  <span style="display: inline-block; height: 15px; width: 20px; background-color: #FD5158"></span>
+  Backbone
+
+  <span style="margin-left: 30px; display: inline-block; height: 15px; width: 20px; background-color: #36BDB2"></span>
+  Angular
+</div>
 
 ---
 
@@ -420,35 +505,11 @@ class: cols three
     <img src="images/hotrightnow6.png">
   </div>
 
+.source[http://blog.bitovi.com/longevity-or-lack-thereof-in-javascript-frameworks/]
+
 ???
 Jeg blir ikke overrasket om det kommer et nytt rammeverk i 2016 som alle er så interissert i
 
----
-background-image: url(images/bar.png)
-
-#bombs og fizzlers
-
-.source[http://blog.bitovi.com/longevity-or-lack-thereof-in-javascript-frameworks/]
-
---
-
-  <span style="position:absolute;left:1%;top:45%">
-    Hype
-  </span>
-  <span style="position:absolute;left:10%;bottom:10%">
-    Tid
-  </span>
-  <img src="images/js-framework-sammenligning-graf.png" style="position:absolute;left:10%;bottom:17%">
-
---
-
-<div style="position: absolute;right: 10%;bottom: 6%">
-  <span style="display: inline-block; height: 15px; width: 20px; background-color: #FD5158"></span>
-  Backbone
-
-  <span style="margin-left: 30px; display: inline-block; height: 15px; width: 20px; background-color: #36BDB2"></span>
-  Angular
-</div>
 ---
 
 background-image: url(images/bar.png)
@@ -666,6 +727,12 @@ name: rest-arkitektur
 
 ---
 class: center middle
+background-image: url(images/navigasjon.jpg)
+
+#Navigasjon
+
+---
+class: center middle
 
 name:url-struktur
 
@@ -674,6 +741,7 @@ name:url-struktur
 --
 name:url-struktur
 <span>/min-oversikt</span>
+
 
 ---
 
@@ -784,7 +852,8 @@ class: cols two
 </div>
 
 ???
-Hver applikasjon har en 200kb penalty
+* Hver applikasjon har en 200kb penalty
+* den raskeste requesten er den du slipper å kjøre
 
 ---
 # Del opp applikasjonen
@@ -807,8 +876,10 @@ Hver applikasjon har en 200kb penalty
 <html>
   <head>
     <title>KentBank 1</title>
-    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" href="lib.css" />
     <script type="text/javascript" src="lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body></body>
@@ -822,8 +893,10 @@ Hver applikasjon har en 200kb penalty
 <html>
   <head>
     <title>KentBank 1</title>
-    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" href="/cdn/lib.css" />
     <script type="text/javascript" src="/cdn/lib.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body></body>
@@ -941,8 +1014,7 @@ class: cols two
 # Cross cutting
 
 <div class="col">
-  <img src="images/sb1-meny.png" style="width: 90%" />
-  <img src="images/kb1-meny2.png" style="width: 50%" />
+  <img src="images/kb1-meny.png" style="width: 82%" />
 </div>
 <div class="col">
   <h2>Krav til funksjonalitet</h2>
@@ -960,19 +1032,213 @@ class: cols two
   <html>
     <head>
       <title>KentBank 1</title>
+      <link type="text/css" rel="stylesheet" href="/cdn/lib-1.1.0.css" />
+      <script type="text/javascript" src="/cdn/lib-1.1.0.js"></script>
+
       <link type="text/css" rel="stylesheet" href="style.css" />
-      <script type="text/javascript" src="/cdn/lib.js"></script>
       <script type="text/javascript" src="app.js"></script>
     </head>
     <body>
-      <link type="text/css" rel="stylesheet" href="/cdn/topnavigation.css" />
-      <nav id="top-navigation"></nav>
-      <script type="text/javascript" src="/cdn/topnavigation.js"></script>
+      <link type="text/css" rel="stylesheet" href="/cdn/topnavigation-1.1.0.css" />
+      <nav></nav>
+      <script type="text/javascript" src="/cdn/topnavigation-1.1.0.js"></script>
     </body>
   </html>
 ```
 
 ---
+
+# Cross cutting
+
+```html
+  <html>
+    <head>
+      <title>KentBank 1</title>
+      <link type="text/css" rel="stylesheet" href="/cdn/lib-1.1.0.css" />
+      <script type="text/javascript" src="/cdn/lib-1.1.0.js"></script>
+    </head>
+    <body>
+      <link type="text/css" rel="stylesheet" href="/cdn/topnavigation-1.1.0.css" />
+      <nav></nav>
+      <script type="text/javascript" src="/cdn/topnavigation-1.1.0.js"></script>
+
+      <link type="text/css" rel="stylesheet" href="style.css" />
+      <main></main>
+      <script type="text/javascript" src="app.js"></script>
+    </body>
+  </html>
+```
+
+---
+class: cols two
+
+# Cross cutting widgets
+
+![](images/popup.png)
+
+---
+
+# Cross cutting widgets
+
+```
+  window.selector = function(buttonElement, listOfItemsToCheck) {
+
+    function addClickEvents() {
+
+    }
+
+    function render() {
+
+    }
+
+    function renderListOfItems() {
+
+    }
+
+    addClickEvents();
+    render();
+    renderListOfItems();
+
+  };
+```
+
+---
+class: cols two
+
+# Cross cutting widgets
+
+
+  .col[
+    ![](images/popup-skisse.png)
+  ]
+
+  .col[
+    ![](images/popup.png)
+  ]
+---
+
+# Cross cutting widgets
+
+```
+  window.selector = function(buttonElement, listOfItemsToCheck) {
+
+    function addClickEvents() {
+
+    }
+
+    function render() {
+
+    }
+
+    function renderListOfItems() {
+
+    }
+
+    addClickEvents();
+    render();
+    renderListOfItems();
+
+  };
+```
+
+---
+
+# Cross cutting widgets
+
+```
+  window.Selector = function(buttonElement, listOfItemsToCheck) {
+
+    this.addClickEvents();
+    this.render();
+    this.renderListOfItems();
+  };
+
+  window.Selector.prototype.addClickEvents = function() {
+
+  };
+
+  window.Selector.prototype.render = function() {
+
+  };
+
+  window.Selector.prototype.renderListOfItems = function() {
+
+  };
+```
+---
+
+#Cross cutting widgets
+
+```
+  // subclass
+  var MyCustomSelector = function() {
+    window.Selector.call(this); // call super constructor
+  };
+
+  var MyCustomSelector.prototype.render = function() {
+    // rendre på en annen måte
+  };
+
+  // MyCustomSelector extends Selector
+  MyCustomSelector.prototype = Object.create(
+                                        window.Selector.prototype,
+                                        MyCustomSelector.prototype
+                               );
+  MyCustomSelector.prototype.constructor = MyCustomSelector;
+
+  var selector = new MyCustomSelector();
+```
+???
+du blør litt i øyene av å lese denne syntaxen
+
+---
+
+#Cross cutting widgets
+
+```
+  class Selector {
+    constructor(buttonElement, listOfItemsToCheck) {
+      this.addClickEvents();
+      this.render();
+      this.renderListOfItems();
+    }
+
+    addClickEvents() {
+
+    }
+
+    render() {
+    }
+
+    renderListOfItems() {
+    }
+  }
+
+  window.Selector = Selector
+```
+
+---
+
+#Cross cutting widgets
+
+```
+  class MyCustomSelector extends window.Selector {
+
+    render() {
+      // rendre på en annen måte
+    }
+
+  }
+
+  var selector = new MyCustomSelector();
+```
+
+???
+* jeg blur gjerne med på diskusjonen om det er riktig å introdussere class i et prototype-språk
+* syntaxen er i allefall pen
+
+---
+
 class: middle center
 
 ![](images/browserify.png)
@@ -981,70 +1247,165 @@ class: middle center
 
 #Browserify
 
+```
+  var Selector = require("./selector");
+
+  class MyCustomSelector extends Selector {
+
+    render() {
+      // rendre på en annen måte
+    }
+
+  }
+
+  module.export = new MyCustomSelector();
+```
+
+---
+
+#Browserify
+
+
+```
+  browserify("main.js").bundle();
+```
+
+--
+
+```
+  browserify("main.js").require([
+    "./node_modules/backbone/backbone.js", {expose: "backbone"}
+  ]).bundle();
+```
+
+--
+
+```
+  browserify("main.js").require([
+    "./node_modules/backbone/backbone.js", {expose: "backbone"},
+    "./selector.js", {expose: "common/selector"},
+  ]).bundle();
+```
+
+
+---
+
+# Konsumere i applikasjonen
+
+package.json
+
 ```json
   {
     "name": "min-oversikt",
     "version": "1.0.0",
     "dependencies": {
-      "lib": "1.1.0",
-      "top-navigation": "1.1.0"
+      "lib": "1.1.0"
     }
   }
-```
-
----
-
-#Browserify
-
-```
-  browserify("main.js").require([
-    "./vendor/react/react.js", {expose: "react"}
-  ]);
-```
---
-
-```
-  var React = require("react");
-```
-
-
----
-
-#Browserify
-
-```
-  var Dropdown = require("common/dropdown");
 ```
 
 --
 
 ```
-
-  class MyCustomDropdown extends Dropdown {
-
-    render() {
-      // do something else
-    }
-
-  }
-
-  exports = MyCustomDropdown;
+  var Selector = require("common/selector");
 ```
 
 
 ---
+
+name: rest-arkitektur
+
 # Oppsummering
 
 ???
+* Da har vi kommet til veis ende
 * Vi har vært gjennom mye
+
+--
+name: rest-arkitektur
+  <div class="layer">
+    <span class="microservice backend">Transaksjoner</span>
+    <span class="microservice backend">Konto</span>
+    <span class="microservice backend">Kort</span>
+    <span class="microservice backend">Kreditt</span>
+    <span class="microservice backend">Admin</span>
+  </div>
+
+  <div class="layer">Representational State Transfer (ReST)</div>
+  <div class="layer">
+    <span class="microservice frontend" style="width:390px">Min oversikt</span>
+    <span class="microservice frontend" style="width:254px">Kortoversikt</span>
+    <span class="microservice frontend" style="width:94px">Profil</span>
+  </div>
+
+---
+
+name: app-storrelse
+class: cols two
+
+# Oppsummering
+
+<div class="col">
+
+  <div class="lib">
+    <div class="label">Biblioteker</div>
+  </div>
+  <div class="app">
+    <div class="label">Applikasjon</div>
+  </div>
+</div>
+<div class="col" style="font-size: 2em">
+  <div style="margin-top: 120px;">
+    200kb
+  </div>
+
+  <div style="margin-top: 200px">
+    100kb
+  </div>
+
+</div>
+
+
+???
+
 * Hvordan dele opp frontend for best å kunne itterer videre
 * Splittet applikasjonene våre for best mulig lasting
-*
 
 ---
 
+# Oppsummering
+
+```
+  var Selector = require("./selector");
+
+  class MyCustomSelector extends Selector {
+
+    render() {
+      // rendre på en annen måte
+    }
+
+  }
+
+  module.export = new MyCustomSelector();
+```
+
+???
+hvordan dele komponenter for å unngå å skrive alt på nytt hver gang
 
 ---
+class: cols two
+
+# Oppsummering
+
+  .col[
+    ![](images/popup-skisse.png)
+  ]
+  .col[
+    ![](images/popup.png)
+  ]
+
+---
+
 class: center middle bekk-top
 
 # TAKK!
@@ -1052,66 +1413,9 @@ class: center middle bekk-top
 @kentandersen
 
 ---
+class: fullscreen
 
-#Ønskesituasjon 5 min
-* gjennbrukbar kode
-* delte moduler
-* gode abstrakter
-* versjonering
-
----
-
-#Separation of concern 5min
-* plan for obsolation
-
----
-
-#Separation of concern 5min
-* slutt med monolittisk frontend kode. Splitt flere skjermbilder (use-case) i flere filer
-* del opp skjermbildet i flere moduler (meny, kontoer, applikasjon etc) som har eget release løp.
-* avgrens bruken av rammeverk i for hver modul, ikke alle trenger backbone
-
----
-
-#Prototype-basert arv 5min
-* abstrakter i JavaScript
-* løsning i forskjellige rammeverk, backbone, angular, react
-* hvordan skrive
-
----
-
-#Oppdeling av moduler 10min
-* introduser browserify
-* splitte opp frontend i flere filer.
-* introducer begrepe mixins
-* domens mot teknologi, ingen /js og /template mappe
-* import av moduler
-* distribusjon av biblioteker
-
----
-
-#Skille mellom app kode og lib kode 10min
-* dele bibliotek runtime
-* bruk av externals i browserify
-* versjonering av biblioteker
-* lasting av biblioteker
-* håndtering av browser cache
-
----
-
-#vår enderlig løsning 5min
-* hvordan sider blir lastet av sider og resurser blir valgt cache-busting
-* cdn server
-* deling av runtime-moduler
-
----
-
-#hvordan blir dette Klassebasert arv i EcmaScript 6 5min
-* klasser i javascript
-* import av moduler
-* annet snaks i EcmaScript 6
-* introduser babel.js cross-compiler
-
+<iframe src="https://babeljs.io/repl/#?experimental=true&evaluate=false&loose=false&spec=false&code=class%20Selector%20%7B%0A%20%20constructor(buttonElement%2C%20listOfItemsToCheck)%20%7B%0A%20%20%20%20this.addClickEvents()%3B%0A%20%20%20%20this.render()%3B%0A%20%20%20%20this.renderListOfItems()%3B%0A%20%20%7D%0A%0A%20%20addClickEvents()%20%7B%0A%0A%20%20%7D%0A%0A%20%20render()%20%7B%0A%20%20%7D%0A%0A%20%20renderListOfItems()%20%7B%0A%20%20%7D%20%0A%7D%0A%0Aclass%20MyCustomSelector%20extends%20Selector%20%7B%0A%0A%20%20render()%20%7B%0A%20%20%20%20%2F%2F%20rendre%20p%C3%A5%20en%20annen%20m%C3%A5te%0A%20%20%7D%0A%0A%7D%0A">
 
     </textarea>
     <script src="node_modules/remark-bekk/vendor/remark-0.11.0.min.js" type="text/javascript"></script>
@@ -1140,32 +1444,5 @@ class: center middle bekk-top
 
     </script>
 
-    <style type="text/css">
-      .remark-slide-number {
-        display: none;
-      }
-
-      .split {
-        padding-right: 50%;
-      }
-      .split img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        max-height: none !important;
-      }
-
-      #slide-framework-history .col {
-        margin: 0 0 40px 0;
-        width: 33%;
-        text-align: center;
-      }
-
-      #slide-framework-history .col img {
-        height: 180px;
-      }
-
-    </style>
   </body>
 </html>
