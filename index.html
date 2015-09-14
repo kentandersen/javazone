@@ -388,14 +388,19 @@ name: rest-arkitektur
   <div class="layer">Representational State Transfer (ReST)</div>
   <div class="layer frontend">Frontend</div>
 
+???
+* kun kommunikkasjon over http
+* hardt totalitært skille mellom frontend og backend
+
 ---
 class: center middle
 
   ![](images/berlinermuren.jpg)
 
 ???
-* Opprettet et skille mellom frontend backend
+* litt som...
 * det var kanskje litt dystert
+* la oss prøve på nytt
 ---
 
 class: center middle
@@ -436,7 +441,8 @@ Husk på hva Uncle Ben har sagt
 class: center middle
 
 ???
-Kunde-case jeg av konkurransehensyn har valgt å annonmisere
+* Kunde-case jeg har jobbet med siste 2årene har jeg av konkurransehensyn valgt å annonmisere
+* men vi kan kalle den kent bank
 
 --
 ![](images/kentbank.png)
@@ -458,16 +464,20 @@ class: cols two middle
 
 
 ???
+vi satt med en stor monolitt, som hadde vokst over all evne
 * Breaking the Monolith @ SpareBank 1
 * I morgen, 11:40-12:40
 
 Ryugyong Hotel
 * Hotell i Pyongyang, Nord korea
 * Starte bygging i 1987
-* Ble stanset i 1992, Sovjetunionens fall
----
-background-image: url(images/bar.png)
+* Ble stanset i 1992, penger fra Sovjetunionens tørka inn
 
+---
+???
+siden vi startet med blanke ark, kunne vi ta noen nye grunnleggende valg
+--
+background-image: url(images/bar.png)
 # Valgt ut i fra hipster-o-meter
 
   <span style="position:absolute;left:2%;top:45%">
@@ -654,7 +664,7 @@ name: rest-arkitektur
 * argumenene for å bryte opp backend, er ikke de samme på frontend
   * integrasjonspunker
   * datamoddeller
-* frontend er det tjenestene og hva er naturlig kundereise
+  * teknologi
 * ikke samme endringstakt
 
 ---
@@ -678,6 +688,8 @@ name: rest-arkitektur
     <span class="microservice frontend" style="width:94px">Profil</span>
   </div>
 ???
+* hvilke tjenester har vi ut mot brukeren
+* hva er naturlig kundereise
 * samme gevinst som på backend
 * vi får segmentert hver app
 
@@ -1437,7 +1449,7 @@ bundle alle avhengigheter til en fil
 
 ```
   browserify("main.js").require([
-    "./node_modules/backbone/backbone.js", {expose: "backbone"}
+    "./node_modules/react/react.js", {expose: "react"}
   ]).bundle();
 ```
 
@@ -1447,7 +1459,7 @@ du kan exponere et set med moduler
 
 ```
   browserify("main.js").require([
-    "./node_modules/backbone/backbone.js", {expose: "backbone"},
+    "./node_modules/react/react.js", {expose: "react"},
     "./selector.js", {expose: "common/selector"},
   ]).bundle();
 ```
@@ -1473,7 +1485,7 @@ package.json
 
 ```
   browserify("main.js").exclude([
-    "backbone",
+    "react",
     "common/selector"
   ]).bundle();
 ```
